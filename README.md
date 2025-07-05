@@ -36,6 +36,6 @@ pkg load signal
   - Camber and pressure levels
 
 ## 👤 Author
-**Diogo** — Formula Student tire analysis project on the  
+**Diogo Neto Filipe** — Formula Student tire analysis project on the  
 **Hoosier 20.5×7.0-13 R20 tire on a 7.0" rim**,  
 based on *Race Car Vehicle Dynamics* (Milliken & Milliken).
