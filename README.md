@@ -1,41 +1,50 @@
-# 📄 README — Tire Data Analysis in Octave
+# 🏁 Tire Data Analysis – Formula Student (GNU Octave)
 
-## 🏎️ Formula Student — Tire Dynamics
-This code allows you to **load, filter, and visualize tire force curves** based on `.dat` files from the **FSAE Tire Test Consortium – Round 9**, tested at **Calspan Tire Research Facility**.
+## 📌 Project Overview
 
-## 📁 Expected Data Format
-Data files should be in **ASCII format with SI units**, for example:  
-```
-B2356runXX.dat
-```
+This project focuses on the analysis of experimental tire data from the **FSAE Tire Test Consortium (Round 9)**, tested at the **Calspan Tire Research Facility**, with application to vehicle dynamics in **Formula Student**.  
+It targets specifically the **Hoosier 20.5×7.0-13 R20** tire mounted on a **7.0" rim**, using `.dat` files in **TIRF format**.
 
-Each file contains columns representing:  
-`SA`, `FY`, `FZ`, `P`, `IA`, `V`, `MZ`, `FX`, and others.
+The goal is to generate and interpret key force/moment curves using custom Octave scripts.
+
+---
+
+## 📂 Supported Data Format
+
+- File format: `.dat` (ASCII, SI units)  
+- File naming: `B2356runXX.dat`  
+- Typical columns include:  
+  - `SA` – Slip Angle  
+  - `FY` – Lateral Force  
+  - `FZ` – Vertical Load  
+  - `FX` – Longitudinal Force  
+  - `MZ` – Self-Aligning Moment  
+  - `P` – Pressure  
+  - `IA` – Camber  
+  - `V` – Speed
+
+---
 
 ## ✅ Main Features
-- 📂 Load raw Calspan test data  
-- 🔎 Filter by slip angle (SA), vertical load (FZ), speed (V), pressure (P), camber (IA)  
-- 📈 Plot force and moment curves:
-  - FY vs SA
-  - MZ vs SA
-  - FX vs FZ  
-- 📊 Support for multiple curves per load or pressure
 
-## ⚙️ Requirements
-- GNU Octave (recommended ≥ v6.2)
-- `signal` package (optional, for `movavg` smoothing)
-```octave
-pkg install -forge signal
-pkg load signal
-```
+- 🧠 Modular Octave scripts (read, filter, process, plot)
+- 🔍 Filter by:
+  - Tire name and rim
+  - Slip angle (SA)
+  - Vertical load (FZ)
+  - Test type (Cornering / DriveBrake)
+- 📊 Generate tire performance curves:
+  - **FY vs SA** (Lateral Force vs Slip Angle)
+  - **MZ vs SA** (Aligning Moment vs Slip Angle)
+  - **FX vs FZ** (Longitudinal Force vs Vertical Load)
+- 🧮 Polynomial fitting for data smoothing
+- ⚡ Optimized for performance with large datasets
 
-## 📝 Notes
-- All data follows **SAE sign conventions** 
-- For deeper analysis, consider:
-  - Tire temperature channels (TSTC, TSTI, TSTO)
-  - Camber and pressure levels
+---
 
-## 👤 Author
-**Diogo Neto Filipe** — Formula Student tire analysis project on the  
-**Hoosier 20.5×7.0-13 R20 tire on a 7.0" rim**,  
-based on *Race Car Vehicle Dynamics* (Milliken & Milliken).
+## ▶️ How to Use
+
+1. **Place the `.m` script files** in the same folder as the `.dat` tire files.  
+2. Open **GNU Octave** and set the current directory to the working folder:
+   ```octave
+   cd path/to/your/folder
